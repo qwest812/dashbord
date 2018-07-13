@@ -1,0 +1,1 @@
+0 7 * * * php -f D:\OSPanel\domains\dashbord\Controller\ControllerExcel\ControllerExel.php
