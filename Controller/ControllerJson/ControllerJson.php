@@ -7,7 +7,7 @@ class ControllerJson
     function  __construct()
     {
 
-        $this->DB = DataBaseController::getObject();
+        $this->DB = ControllerDB::getObject();
         switch($_GET['get']){
             case 'all':
                 echo json_encode($this->DB->getAll());

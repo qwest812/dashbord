@@ -3,7 +3,7 @@
 /**
  * Class DataBaseController
  */
-class DataBaseController
+class ControllerDB
 {
     protected $host = '127.0.0.1';
     protected $db = 'dashbord';
@@ -41,21 +41,23 @@ class DataBaseController
      * @return string
      *
      */
-    function ifUserExist($email)
+    function ifUserExist($login)
     {
-        $sql = "SELECT * FROM `users` WHERE user_email= ?";
+//        var_dump($login);
+        $sql = "SELECT * FROM `user` WHERE `user_login`=?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$email]);
+        $stmt->execute([$login]);
         return $stmt->fetchColumn();
     }
 
-    function selectPassByEmail($email)
+    function selectPassByLogin($login)
     {
 //        $email = 'rybachuk.iaroslav@gmail.com1';
 //var_dump($email);
-        $sql = "SELECT `id`,`user_pass` FROM `users` WHERE user_email= ?";
+        $sql = "SELECT `id`,`user_pass` FROM `user` WHERE user_login= ?";
+
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$email]);
+        $stmt->execute([$login]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 

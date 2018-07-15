@@ -10,7 +10,7 @@ class ControllerExel
 
     function  __construct()
     {
-        $this->DB = DataBaseController::getObject();
+        $this->DB = ControllerDB::getObject();
         $this->exel = PHPExcel_IOFactory::load('../../doc.xlsx');
         $list = $this->createList();
         $this->addUserExcelToDb($list);
